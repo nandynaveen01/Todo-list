@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <img src="images/svg/logo.svg" alt="Todo Logo" />
+  </header>
+
+  <main>
+    <div class="todo-input">
+      <input type="text" />
+      <button id="create-task-button">
+        <span>New</span>
+        <img src="images/svg/new-icon.svg" />
+      </button>
+    </div>
+
+    <section class="todo-content">
+      <div class="tasks-info">
+        <div class="created-tasks">
+          <span class="text">Created</span>
+          <span class="count">0</span>
+        </div>
+
+        <div class="completed-tasks">
+          <span class="text">Completed</span>
+          <span class="count">0 of 0</span>
+        </div>
+      </div>
+
+      <div class="tasks-container"></div>
+
+      <details class="completed-tasks-container">
+        <summary>Completed</summary>
+
+        <div class="tasks-container"></div>
+      </details>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

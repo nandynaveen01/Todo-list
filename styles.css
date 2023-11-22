@@ -1,0 +1,293 @@
+:root {
+  --grayscale-color-0: #0d0d0d;
+  --grayscale-color-1: #1a1a1a;
+  --grayscale-color-2: #262626;
+  --grayscale-color-3: #333333;
+  --grayscale-color-4: #808080;
+  --grayscale-color-5: #d9d9d9;
+  --grayscale-color-6: #f2f2f2;
+
+  --primary-color-0: #1e6f9f;
+  --primary-color-1: #4ea8de;
+  --primary-color-2: #5e60ce;
+  --primary-color-3: #8284fa;
+
+  --danger-color: #e25858;
+
+  --main-font: 'Inter', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--grayscale-color-1);
+  font-family: var(--main-font);
+  font-weight: 400;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grayscale-color-0);
+  min-height: 150px;
+  height: calc(20vh + 25px);
+  margin-bottom: -25px;
+}
+
+main {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 3rem;
+}
+
+/* New task input */
+
+.todo-input {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.todo-input input {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--grayscale-color-0);
+  background: var(--grayscale-color-2);
+  flex-grow: 1;
+  color: var(--grayscale-color-6);
+  font-size: 1rem;
+}
+
+.todo-input input:focus {
+  outline: 1px solid var(--primary-color-2);
+}
+
+.todo-input button {
+  border-radius: 8px;
+  background-color: var(--primary-color-0);
+  border: none;
+  outline: none;
+  padding: 1rem;
+  color: var(--grayscale-color-6);
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 300ms ease;
+}
+
+.todo-input button:hover {
+  background-color: var(--primary-color-1);
+}
+
+.todo-input button:focus {
+  outline: 3px solid #1e709f94;
+}
+
+/* Tasks info */
+
+.tasks-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.created-tasks,
+.completed-tasks {
+  display: flex;
+  font-weight: 700;
+  gap: 0.5rem;
+}
+
+.created-tasks .text {
+  color: var(--primary-color-1);
+  line-height: 160%;
+}
+
+.completed-tasks .text {
+  color: var(--primary-color-3);
+  line-height: 160%;
+}
+
+.count {
+  background-color: var(--grayscale-color-3);
+  color: var(--grayscale-color-5);
+  padding: 0.125rem 0.5rem;
+  border-radius: 10px;
+  line-height: 160%;
+}
+
+/* Tasks */
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.completed-tasks-container {
+  visibility: hidden;
+  margin-top: 1.75rem;
+}
+
+.task input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-progress-appearance: none;
+  appearance: none;
+
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid var(--primary-color-1);
+}
+
+.task input[type='checkbox']:hover {
+  background-color: #1e709f4f;
+}
+
+.task input[type='checkbox']:focus {
+  outline: 2px solid #5e60ce63;
+  outline-offset: 2px;
+}
+
+.task input[type='checkbox']:checked {
+  background-color: var(--primary-color-2);
+  border-color: var(--primary-color-2);
+  position: relative;
+}
+
+.task input[type='checkbox']:checked + p {
+  text-decoration: line-through;
+  color: var(--grayscale-color-4);
+}
+
+.task input[type='checkbox']:checked::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='17' height='17' viewBox='0 0 24 24'%3E%3Cpath d='M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z' fill='%23f2f2f2'%3E%3C/path%3E%3C/svg%3E");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  top: 60%;
+  left: 50%;
+}
+
+.task input[type='checkbox']:checked:hover {
+  background-color: var(--primary-color-3);
+  border-color: var(--primary-color-3);
+}
+
+.task {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: stretch;
+  justify-content: space-between;
+
+  border-radius: 8px;
+  border: 1px solid var(--grayscale-color-3);
+  background: var(--grayscale-color-2);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+
+  color: var(--grayscale-color-6);
+  font-size: 14px;
+  line-height: 140%;
+}
+
+.task > div:first-child {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.task .task-description {
+  line-height: 160%;
+  overflow-wrap: anywhere;
+}
+
+.task .delete-button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 5px 6px;
+  border-radius: 4px;
+}
+
+.task .delete-button::after {
+  content: url('images/svg/trash.svg');
+  display: block;
+  margin-top: 4px;
+}
+
+.task .delete-button:hover {
+  background-color: var(--grayscale-color-3);
+  cursor: pointer;
+}
+
+.task .delete-button:hover::after {
+  content: url('images/svg/red-trash.svg');
+}
+
+/* Empty container */
+
+.no-tasks {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grayscale-color-4);
+  text-align: center;
+  line-height: 140%;
+  padding: 64px 0;
+}
+
+.no-tasks img {
+  margin-bottom: 1rem;
+}
+
+/* Completed tasks */
+
+summary {
+  font-size: 18px;
+  color: var(--grayscale-color-6);
+  font-weight: 600;
+  margin-bottom: 0.875rem;
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1100px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    width: 95%;
+  }
+}
